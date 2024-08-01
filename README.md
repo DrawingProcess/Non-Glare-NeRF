@@ -8,7 +8,7 @@ Ref. [nerfstudio/README.md](./nerfstudio/README.md)
 ```ns-process-data record3d --data nerf_custom/record3d_lab_simple/EXR_RGBD/ --output-dir nerf_custom/record3d_lab_simple/ --max_dataset_size 400```
 
 3. depth exr format to npy format </br>
-```python depth_exr_to_npy.py 240508_classroom```
+```python utils/depth_exr_to_npy.py 240508_classroom```
 
 
 ## 2) Masking Inpainting using co-mod-gan-pytorch
@@ -16,16 +16,16 @@ Ref. [nerfstudio/README.md](./nerfstudio/README.md)
 Ref. [co-mod-gan-pytorch/README.md](./co-mod-gan-pytorch/README.md)
 
 1. Glare Masking using OpenCV </br>
-```python glare_mask.py 240508_classroom```
+```python utils/glare_mask.py 240508_classroom```
 
 2. Image Crop for inpainting (Commonly inpainting algorithms supported 512x512 size) </br>
-```python image_crop.py 240508_classroom```
+```python utils/image_crop.py 240508_classroom```
 
 3. inpainting </br>
 ```./test.sh 240508_classroom```
 
 4. Image merge </br>
-```python image_merge.py 240508_classroom```
+```python utils/image_merge.py 240508_classroom```
 
 
 ## 3) NeRF Train & Visualize using nerfstudio
