@@ -1,22 +1,18 @@
 # Non-Glare NeRF: To prevent unwanted glare
 
-This is the official implementation of our KSC 2024 paper Non-Glare NeRF: To prevent unwanted glare. Pull requests and issues are welcome.
+This is the official implementation of our KSC 2024 paper Non-Glare NeRF: To prevent unwanted glare. Pull requests and issues are welcome.</br>
 
-Abstract: This paper proposes two approaches to solve the depth distortion problem that occurs on glare surfaces in the process of 3D reconstruction based on Neural Radiance Fields (NeRF). First, by introducing a preprocessing process using the Inpainting technique, distortion of texture and depth information due to Glare is alleviated. Second, a dataset that combines high-precision depth information and rich color information is constructed using the iPhone's LiDAR sensor and RGB camera. It was confirmed through experiments that the proposed method improves the 3D reconstruction performance of NeRF even in scenes where the Glare phenomenon exists.
+<b>Abstract</b>: This paper proposes two approaches to solve the depth distortion problem that occurs on glare surfaces in the process of 3D reconstruction based on Neural Radiance Fields (NeRF). First, by introducing a preprocessing process using the Inpainting technique, distortion of texture and depth information due to Glare is alleviated. Second, a dataset that combines high-precision depth information and rich color information is constructed using the iPhone's LiDAR sensor and RGB camera. It was confirmed through experiments that the proposed method improves the 3D reconstruction performance of NeRF even in scenes where the Glare phenomenon exists.
 
 ## Requirements
 
 The codebase is tested on
-
 - python 3.7+
 - GeForce RTX 3090
-Create a virtual environment and then run:
 
 ## 1) Prepare Dataset: depth custom data 
 
 ### i) Data Engine: Extract image & depth row data
-
- </br>
 
 Ref. [minsangKang/LiDAR-Map-App](https://github.com/minsangKang/LiDAR-Map-App)
 
