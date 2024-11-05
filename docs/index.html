@@ -2,10 +2,10 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <meta name="description" content="NeRF-HuGS">
+  <meta name="description" content="Non-Glare-NeRF">
   <meta name="keywords" content="NeRF">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>NeRF-HuGS</title>
+  <title>Non-Glare-NeRF</title>
 
   <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
         rel="stylesheet">
@@ -31,31 +31,19 @@
     <div class="container is-max-desktop">
       <div class="columns is-centered">
         <div class="column has-text-centered">
-          <h1 class="title is-1 publication-title">NeRF-HuGS</h1>
-          <h1 class="title is-2 publication-title">Improved Neural Radiance Fields in Non-static Scenes Using Heuristics-Guided Segmentation</h1>
+          <h1 class="title is-1 publication-title">Non-Glare-NeRF</h1>
+          <h1 class="title is-2 publication-title">To prevent unwanted glare</h1>
           <div class="is-size-5 publication-authors">
             <span class="author-block">
-              <a href="https://cnhaox.github.io">Jiahao Chen</a><sup>1</sup>&nbsp&nbsp
+              <a href="https://DrawingProcess.github.io">Seongjun Choi</a><sup>1</sup>&nbsp&nbsp
             </span>
             <span class="author-block">
-              <a href="https://yipengqin.github.io">Yipeng Qin</a><sup>2</sup>&nbsp&nbsp
-            </span>
-            <span class="author-block">
-              <a href="https://lingjie0206.github.io">Lingjie Liu</a><sup>3</sup>&nbsp&nbsp
-            </span>
-            <span class="author-block">
-              <a href="https://sites.google.com/site/jiangbolu">Jiangbo Lu</a><sup>4</sup>&nbsp&nbsp
-            </span>
-            <span class="author-block">
-              <a href="http://guanbinli.com/">Guanbin Li</a><sup>1+</sup>
+              <a href="https://sites.google.com/view/hyoseok-hwang">Hyoseok Hwang</a><sup>1+</sup>&nbsp&nbsp
             </span>
           </div>
 
-          <div class="is-size-5 publication-authors">
-            <span class="author-block"><sup>1</sup>Sun Yat-sen University &nbsp&nbsp</span>
-            <span class="author-block"><sup>2</sup>Cardiff University &nbsp&nbsp</span>
-            <span class="author-block"><sup>3</sup>University of Pennsylvania &nbsp&nbsp</span>
-            <span class="author-block"><sup>4</sup>SmartMore Corporation</span>
+          <div class="is-size-6 publication-authors">
+            <span class="author-block"><sup>1</sup>KyungHee University &nbsp&nbsp</span>
           </div>
 
           <div class="is-size-6 publication-authors">
@@ -64,7 +52,7 @@
 
           <div class="column has-text-centered">
             <div class="is-size-4 publication-authors">
-              <span class="author-block"><b>CVPR 2024 (Oral)</b></span>
+              <span class="author-block"><b>KSC 2024</b></span>
             </div>
           </div>
 
@@ -101,7 +89,7 @@
               </span>
               <!-- Code Link. -->
               <span class="link-block">
-                <a href="https://github.com/cnhaox/NeRF-HuGS"
+                <a href="https://github.com/DrawingProcess/Non-Glare-NeRF"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <i class="fab fa-github"></i>
@@ -109,15 +97,6 @@
                   <span>Code</span>
                   </a>
               </span>
-              <!-- Dataset Link. -->
-              <span class="link-block">
-                <a href="https://drive.google.com/drive/folders/19xmJGgL4VlqviXIDdiy-tLzthu6SJrzn?usp=sharing"
-                   class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                      <i class="far fa-images"></i>
-                  </span>
-                  <span>Data</span>
-                  </a>
             </div>
           </div>
         </div>
@@ -135,19 +114,14 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            Neural Radiance Field (NeRF) has been widely recognized for its excellence in novel view synthesis and 3D scene reconstruction. 
-            However, their effectiveness is inherently tied to the assumption of static scenes, 
-            rendering them susceptible to undesirable artifacts when confronted with transient distractors such as moving objects or shadows.
+            This paper proposes two approaches to solve the depth distortion problem that occurs on glare surfaces in the process of 3D reconstruction based on Neural Radiance Fields (NeRF). 
           </p>
           <p>
-            In this work, we propose a novel paradigm, namely ''Heuristics-Guided Segmentation'' (HuGS), 
-            which significantly enhances the separation of static scenes from transient distractors by harmoniously combining the strengths of hand-crafted heuristics and state-of-the-art segmentation models, 
-            thus significantly transcending the limitations of previous solutions. 
-            Furthermore, we delve into the meticulous design of heuristics, 
-            introducing a seamless fusion of Structure-from-Motion (SfM)-based heuristics and color residual heuristics, catering to a diverse range of texture profiles. 
+            First, by introducing a preprocessing process using the Inpainting technique, distortion of texture and depth information due to Glare is alleviated. 
+            Second, a dataset that combines high-precision depth information and rich color information is constructed using the iPhone's LiDAR sensor and RGB camera. 
           </p>
           <p>
-            Extensive experiments demonstrate the superiority and robustness of our method in mitigating transient distractors for NeRFs trained in non-static scenes.
+            It was confirmed through experiments that the proposed method improves the 3D reconstruction performance of NeRF even in scenes where the Glare phenomenon exists.
           </p>
         </div>
       </div>
@@ -490,10 +464,10 @@
 <section class="section" id="BibTeX">
   <div class="container is-max-desktop content">
     <h2 class="title">BibTeX</h2>
-    <pre><code>@article{chen2024nerfhugs,
-  author    = {Chen, Jiahao and Qin, Yipeng and Liu, Lingjie and Lu, Jiangbo and Li, Guanbin},
-  title     = {NeRF-HuGS: Improved Neural Radiance Fields in Non-static Scenes Using Heuristics-Guided Segmentation},
-  journal   = {CVPR},
+    <pre><code>@article{choi2024nonglarenerf,
+  author    = {Choi, Seongjun and Hwang, Hyoseok},
+  title     = {Non-Glare-NeRF: To prevent unwanted glare},
+  journal   = {KSC},
   year      = {2024},
 }</code></pre>
   </div>
@@ -506,7 +480,7 @@
          href="https://arxiv.org/pdf/2403.17537.pdf">
         <i class="fas fa-file-pdf"></i>
       </a>
-      <a class="icon-link" href="https://cnhaox.github.io" class="external-link" disabled>
+      <a class="icon-link" href="https://DrawingProcess.github.io" class="external-link" disabled>
         <i class="fab fa-github"></i>
       </a>
     </div>
