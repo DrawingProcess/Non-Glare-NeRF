@@ -1,6 +1,10 @@
-# Non-Glare NeRF: To prevent unwanted glare
+# Non-Glare-NeRF: To prevent unwanted glare
 
 This is the official implementation of our KSC 2024 paper Non-Glare NeRF: To prevent unwanted glare. Pull requests and issues are welcome.</br>
+
+[Seongjun Choi](https://drawingprocess.github.io), [Hyoseok Hwang](https://sites.google.com/view/hyoseok-hwang)
+
+[[`Paper`](https://arxiv.org/abs/2403.17537)] [[`Project`](https://drawingprocess.github.io/Non-Glare-NeRF/)]
 
 <b>Abstract</b>: This paper proposes two approaches to solve the depth distortion problem that occurs on glare surfaces in the process of 3D reconstruction based on Neural Radiance Fields (NeRF). First, by introducing a preprocessing process using the Inpainting technique, distortion of texture and depth information due to Glare is alleviated. Second, a dataset that combines high-precision depth information and rich color information is constructed using the iPhone's LiDAR sensor and RGB camera. It was confirmed through experiments that the proposed method improves the 3D reconstruction performance of NeRF even in scenes where the Glare phenomenon exists.
 
