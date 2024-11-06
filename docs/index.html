@@ -79,7 +79,7 @@
               </span>
               <!-- Video Link. -->
               <span class="link-block">
-                <a href="https://youtu.be/T_9l3gW3B4I?si=6bYEbuBg0nHXc6NH"
+                <a href="https://youtu.be/8Fm3O_NyreY"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <i class="fab fa-youtube"></i>
@@ -132,7 +132,7 @@
       <div class="column is-four-fifths">
         <h2 class="title is-3">Video</h2>
         <div class="publication-video">
-          <iframe src="https://www.youtube.com/embed/T_9l3gW3B4I?si=0RmLUN0K2i9KvAEk"
+          <iframe src="https://www.youtube.com/embed/8Fm3O_NyreY"
                   frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
         </div>
       </div>
@@ -268,194 +268,40 @@
         <br>
         <div class="content has-text-centered">
           <div class="video-grid-3-with-left">
-            <div class="vertical-text">BabyYoda</div>
+            <div class="vertical-text">classroom1</div>
             <div>
-              Mip-NeRF 360
-              <video class="video" preload="auto" id="yoda1" loop playsinline autoPlay muted src="static/videos/compare_yoda_base.mp4" onplay="resizeAndPlayMultiWhenReady(this, ['yoda2', 'yoda3'])"></video>
+              Ground Truth
+              <video class="video" preload="auto" id="yoda1" loop playsinline autoPlay muted src="static/videos/classroom1/gt.mp4" onplay="resizeAndPlayMultiWhenReady(this, ['yoda2', 'yoda3'])"></video>
               <canvas height=0 class="videoMerge" id="yoda1Merge"></canvas>
             </div>
             <div>
-              w/ RobustNeRF
-              <video class="video" preload="auto" id="yoda2" loop playsinline autoPlay muted src="static/videos/compare_yoda_robustnerf.mp4"></video>
+              instant NGP
+              <video class="video" preload="auto" id="yoda2" loop playsinline autoPlay muted src="static/videos/classroom1/result.mp4"></video>
               <canvas height=0 class="videoMerge" id="yoda2Merge"></canvas>
             </div>
             <div>
-              w/ HuGS (<b>ours</b>) 
-              <video class="video" preload="auto" id="yoda3" loop playsinline autoPlay muted src="static/videos/compare_yoda_withmask.mp4"></video>
+              w/ Non-Glare-NeRF (<b>ours</b>) 
+              <video class="video" preload="auto" id="yoda3" loop playsinline autoPlay muted src="static/videos/classroom1_inpainting/result.mp4"></video>
               <canvas height=0 class="videoMerge" id="yoda3Merge"></canvas>
             </div>
           </div>
           <div class="video-grid-3-with-left">
-            <div class="vertical-text">Crab</div>
+            <div class="vertical-text">classroom2</div>
             <div>
-              <video class="video" preload="auto" id="crab1" loop playsinline autoPlay muted src="static/videos/compare_crab_base.mp4" onplay="resizeAndPlayMultiWhenReady(this, ['crab2', 'crab3'])"></video>
-              <canvas height=0 class="videoMerge" id="crab1Merge"></canvas>
+              <video class="video" preload="auto" id="yoda1" loop playsinline autoPlay muted src="static/videos/classroom2/gt.mp4" onplay="resizeAndPlayMultiWhenReady(this, ['yoda2', 'yoda3'])"></video>
+              <canvas height=0 class="videoMerge" id="yoda1Merge"></canvas>
             </div>
             <div>
-              <video class="video" preload="auto" id="crab2" loop playsinline autoPlay muted src="static/videos/compare_crab_robustnerf.mp4"></video>
-              <canvas height=0 class="videoMerge" id="crab2Merge"></canvas>
+              <video class="video" preload="auto" id="yoda2" loop playsinline autoPlay muted src="static/videos/classroom2/result.mp4"></video>
+              <canvas height=0 class="videoMerge" id="yoda2Merge"></canvas>
             </div>
             <div>
-              <video class="video" preload="auto" id="crab3" loop playsinline autoPlay muted src="static/videos/compare_crab_withmask.mp4"></video>
-              <canvas height=0 class="videoMerge" id="crab3Merge"></canvas>
-            </div>
-          </div>
-          <div class="video-grid-3-with-left">
-            <div class="vertical-text">Statue</div>
-            <div>
-              <video class="video" preload="auto" id="t_balloon_statue1" loop playsinline autoPlay muted src="static/videos/compare_t_balloon_statue_base.mp4" onplay="resizeAndPlayMultiWhenReady(this, ['t_balloon_statue2', 't_balloon_statue3'])"></video>
-              <canvas height=0 class="videoMerge" id="t_balloon_statue1Merge"></canvas>
-            </div>
-            <div>
-              <video class="video" preload="auto" id="t_balloon_statue2" loop playsinline autoPlay muted src="static/videos/compare_t_balloon_statue_robustnerf.mp4"></video>
-              <canvas height=0 class="videoMerge" id="t_balloon_statue2Merge"></canvas>
-            </div>
-            <div>
-              <video class="video" preload="auto" id="t_balloon_statue3" loop playsinline autoPlay muted src="static/videos/compare_t_balloon_statue_withmask.mp4"></video>
-              <canvas height=0 class="videoMerge" id="t_balloon_statue3Merge"></canvas>
-            </div>
-          </div>
-          <div class="video-grid-3-with-left">
-            <div class="vertical-text">Android</div>
-            <div>
-              <video class="video" preload="auto" id="and-bot1" loop playsinline autoPlay muted src="static/videos/compare_and-bot_base.mp4" onplay="resizeAndPlayMultiWhenReady(this, ['and-bot2', 'and-bot3'])"></video>
-              <canvas height=0 class="videoMerge" id="and-bot1Merge"></canvas>
-            </div>
-            <div>
-              <video class="video" preload="auto" id="and-bot2" loop playsinline autoPlay muted src="static/videos/compare_and-bot_robustnerf.mp4"></video>
-              <canvas height=0 class="videoMerge" id="and-bot2Merge"></canvas>
-            </div>
-            <div>
-              <video class="video" preload="auto" id="and-bot3" loop playsinline autoPlay muted src="static/videos/compare_and-bot_withmask.mp4"></video>
-              <canvas height=0 class="videoMerge" id="and-bot3Merge"></canvas>
+              <video class="video" preload="auto" id="yoda3" loop playsinline autoPlay muted src="static/videos/classroom2_inpainting/result.mp4"></video>
+              <canvas height=0 class="videoMerge" id="yoda3Merge"></canvas>
             </div>
           </div>
         </div>
         <br>
-        <p>
-          <b>Comparisons on the Kubric Dataset:</b>
-        </p>
-        <br>
-        <div class="content has-text-centered">
-          <div class="video-grid-3-with-left">
-            <div class="vertical-text">Pillow</div>
-            <div>
-              Mip-NeRF 360
-              <video class="video" preload="auto" id="pillow1" loop playsinline autoPlay muted src="static/videos/compare_pillow_base.mp4" onplay="resizeAndPlayMultiWhenReady(this, ['pillow2', 'pillow3'])"></video>
-              <canvas height=0 class="videoMerge" id="pillow1Merge"></canvas>
-            </div>
-            <div>
-              w/ RobustNeRF
-              <video class="video" preload="auto" id="pillow2" loop playsinline autoPlay muted src="static/videos/compare_pillow_robustnerf.mp4"></video>
-              <canvas height=0 class="videoMerge" id="pillow2Merge"></canvas>
-            </div>
-            <div>
-              w/ HuGS (<b>ours</b>) 
-              <video class="video" preload="auto" id="pillow3" loop playsinline autoPlay muted src="static/videos/compare_pillow_withmask.mp4"></video>
-              <canvas height=0 class="videoMerge" id="pillow3Merge"></canvas>
-            </div>
-          </div>
-          <div class="video-grid-3-with-left">
-            <div class="vertical-text">Chairs</div>
-            <div>
-              <video class="video" preload="auto" id="chair1" loop playsinline autoPlay muted src="static/videos/compare_chair_base.mp4" onplay="resizeAndPlayMultiWhenReady(this, ['chair2', 'chair3'])"></video>
-              <canvas height=0 class="videoMerge" id="chair1Merge"></canvas>
-            </div>
-            <div>
-              <video class="video" preload="auto" id="chair2" loop playsinline autoPlay muted src="static/videos/compare_chair_robustnerf.mp4"></video>
-              <canvas height=0 class="videoMerge" id="chair2Merge"></canvas>
-            </div>
-            <div>
-              <video class="video" preload="auto" id="chair3" loop playsinline autoPlay muted src="static/videos/compare_chair_withmask.mp4"></video>
-              <canvas height=0 class="videoMerge" id="chair3Merge"></canvas>
-            </div>
-          </div>
-          <div class="video-grid-3-with-left">
-            <div class="vertical-text">Cars</div>
-            <div>
-              <video class="video" preload="auto" id="cars1" loop playsinline autoPlay muted src="static/videos/compare_car_base.mp4" onplay="resizeAndPlayMultiWhenReady(this, ['cars2', 'cars3'])"></video>
-              <canvas height=0 class="videoMerge" id="cars1Merge"></canvas>
-            </div>
-            <div>
-              <video class="video" preload="auto" id="cars2" loop playsinline autoPlay muted src="static/videos/compare_car_robustnerf.mp4"></video>
-              <canvas height=0 class="videoMerge" id="cars2Merge"></canvas>
-            </div>
-            <div>
-              <video class="video" preload="auto" id="cars3" loop playsinline autoPlay muted src="static/videos/compare_car_withmask.mp4"></video>
-              <canvas height=0 class="videoMerge" id="cars3Merge"></canvas>
-            </div>
-          </div>
-        </div>
-        <br>
-        <p>
-          <b>Comparisons on the Phototourism Dataset:</b>
-        </p>
-        <br>
-        <div class="content has-text-centered">
-          <div class="video-grid-3-with-left">
-            <div class="vertical-text">Brandenburg Gate</div>
-            <div>
-              Mip-NeRF 360
-              <video class="video" preload="auto" id="brandenburg_gate1" loop playsinline autoPlay muted src="static/videos/compare_brandenburg_gate_base.mp4" onplay="resizeAndPlayMultiWhenReady(this, ['brandenburg_gate2', 'brandenburg_gate3'])"></video>
-              <canvas height=0 class="videoMerge" id="brandenburg_gate1Merge"></canvas>
-            </div>
-            <div>
-              w/ RobustNeRF
-              <video class="video" preload="auto" id="brandenburg_gate2" loop playsinline autoPlay muted src="static/videos/compare_brandenburg_gate_robustnerf.mp4"></video>
-              <canvas height=0 class="videoMerge" id="brandenburg_gate2Merge"></canvas>
-            </div>
-            <div>
-              w/ HuGS (<b>ours</b>)  
-              <video class="video" preload="auto" id="brandenburg_gate3" loop playsinline autoPlay muted src="static/videos/compare_brandenburg_gate_withmask.mp4"></video>
-              <canvas height=0 class="videoMerge" id="brandenburg_gate3Merge"></canvas>
-            </div>
-          </div>
-          <div class="video-grid-3-with-left">
-            <div class="vertical-text">Sacre Coeur</div>
-            <div>
-              <video class="video" preload="auto" id="sacre_coeur1" loop playsinline autoPlay muted src="static/videos/compare_sacre_coeur_base.mp4" onplay="resizeAndPlayMultiWhenReady(this, ['sacre_coeur2', 'sacre_coeur3'])"></video>
-              <canvas height=0 class="videoMerge" id="sacre_coeur1Merge"></canvas>
-            </div>
-            <div>
-              <video class="video" preload="auto" id="sacre_coeur2" loop playsinline autoPlay muted src="static/videos/compare_sacre_coeur_robustnerf.mp4"></video>
-              <canvas height=0 class="videoMerge" id="sacre_coeur2Merge"></canvas>
-            </div>
-            <div>
-              <video class="video" preload="auto" id="sacre_coeur3" loop playsinline autoPlay muted src="static/videos/compare_sacre_coeur_withmask.mp4"></video>
-              <canvas height=0 class="videoMerge" id="sacre_coeur3Merge"></canvas>
-            </div>
-          </div>
-          <div class="video-grid-3-with-left">
-            <div class="vertical-text">Taj Mahal</div>
-            <div>
-              <video class="video" preload="auto" id="taj_mahal1" loop playsinline autoPlay muted src="static/videos/compare_taj_mahal_base.mp4" onplay="resizeAndPlayMultiWhenReady(this, ['taj_mahal2', 'taj_mahal3'])"></video>
-              <canvas height=0 class="videoMerge" id="taj_mahal1Merge"></canvas>
-            </div>
-            <div>
-              <video class="video" preload="auto" id="taj_mahal2" loop playsinline autoPlay muted src="static/videos/compare_taj_mahal_robustnerf.mp4"></video>
-              <canvas height=0 class="videoMerge" id="taj_mahal2Merge"></canvas>
-            </div>
-            <div>
-              <video class="video" preload="auto" id="taj_mahal3" loop playsinline autoPlay muted src="static/videos/compare_taj_mahal_withmask.mp4"></video>
-              <canvas height=0 class="videoMerge" id="taj_mahal3Merge"></canvas>
-            </div>
-          </div>
-          <div class="video-grid-3-with-left">
-            <div class="vertical-text">Trevi Fountain</div>
-            <div>
-              <video class="video" preload="auto" id="trevi_fountain1" loop playsinline autoPlay muted src="static/videos/compare_trevi_fountain_base.mp4" onplay="resizeAndPlayMultiWhenReady(this, ['trevi_fountain2', 'trevi_fountain3'])"></video>
-              <canvas height=0 class="videoMerge" id="trevi_fountain1Merge"></canvas>
-            </div>
-            <div>
-              <video class="video" preload="auto" id="trevi_fountain2" loop playsinline autoPlay muted src="static/videos/compare_trevi_fountain_robustnerf.mp4"></video>
-              <canvas height=0 class="videoMerge" id="trevi_fountain2Merge"></canvas>
-            </div>
-            <div>
-              <video class="video" preload="auto" id="trevi_fountain3" loop playsinline autoPlay muted src="static/videos/compare_trevi_fountain_withmask.mp4"></video>
-              <canvas height=0 class="videoMerge" id="trevi_fountain3Merge"></canvas>
-            </div>
-          </div>
-        </div>
       </div>
     </div>
 </section>
