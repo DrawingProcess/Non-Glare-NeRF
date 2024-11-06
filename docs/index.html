@@ -68,15 +68,6 @@
                   <span>Paper</span>
                 </a>
               </span>
-              <span class="link-block">
-                <a href="https://arxiv.org/abs/2403.17537"
-                   class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                      <i class="ai ai-arxiv"></i>
-                  </span>
-                  <span>arXiv</span>
-                </a>
-              </span>
               <!-- Video Link. -->
               <span class="link-block">
                 <a href="https://youtu.be/8Fm3O_NyreY"
@@ -137,7 +128,6 @@
         </div>
       </div>
     </div>
-    <!--/ Paper video. -->
   </div>
 </section>
 
@@ -146,16 +136,23 @@
   <div class="container is-max-desktop">
     <div class="columns is-centered">
       <div class="column is-full-width">
-        <h3 class="title is-3 is-centered" style="text-align: center;">Heuristics-Guided Segmentation (HuGS)</h2>
+        <h3 class="title is-3 is-centered" style="text-align: center;">Non-Glare-NeRF</h3>
         <div class="content">
-          <img src="./static/images/pipeline.png" alt="HuGS Pipeline" width="100%">
+          <!-- <h4 class="title is-4 is-centered" style="text-align: center;">Motivation</h4>
+          <img src="./static/images/fig/motivation.gif" alt="Motivation" width="100%">
           <p>
-            <b>Pipeline of HuGS:</b>
-            (a) Given unordered images of a static scene disturbed by transient distractors as input, we first obtain two types of heuristics.
-            (b) SfM-based heuristics use SfM to distinguish between static (<span style="color:rgb(0,171,79)">green</span>) and transient features (<span style="color:rgb(255,46,23)">red</span>).
-            The static features are then employed as point prompts to generate dense masks using SAM. 
-            (c) Residual-based heuristics are based on a partially trained NeRF (ie, trained for several thousands of iterations) that can provide reasonable color residuals. 
-            (d) Their combination finally guides SAM again to generate (e) the static map for each input image.
+            <b>Motivation:</b>
+            NeRF is attracting attention as a powerful technology that can reconstruct the 3D structure of complex scenes in high resolution using neural networks. 
+            However, NeRF is vulnerable to Glare phenomena caused by strong reflection of light, which leads to loss of depth information and distortion of reconstruction results.
+            Glare phenomenon is noticeable on surfaces with strong reflections of light, such as glass, metal, and water, which is a major factor that hinders the accurate 3D reconstruction of NeRF. 
+            Therefore, it is difficult to expect high-quality 3D reconstruction without solving the Glare problem.
+          </p> -->
+          <img src="./static/images/pipeline.jpg" alt="Non-Glare-NeRF Pipeline" width="100%">
+          <p>
+            <b>Pipeline of Non-Glare-NeRF:</b>
+            (a): Extract Instant NGP (NeRF) model results. 
+            (b): Extract the result of Instant NGP (NeRF) model with pre-processing. 
+            Pre-processing includes the process of detecting glare areas and applying interpainting.
           </p>
           <br>
           <p>
@@ -163,92 +160,28 @@
 
           </p>
           <div class="video-grid-6 has-text-centered">
-            <div>(1) Input</div>
-            <div>(2) Seg. w/ SfM</div>
-            <div>(3) H<sup>SfM</sup></div>
-            <div>(4) Color Residual</div>
-            <div>(5) H<sup>CR</sup></div>
-            <div>(6) Static Map</div>
+            <div>(1) Input RGB</div>
+            <div>(2) Input Depth</div>
+            <div>(3) Glare Mask</div>
+            <div>(4) Inpainting</div>
+            <div>(5) Result RGB</div>
+            <div>(6) Result Depth</div>
           </div>
           <div class="video-grid-6 has-text-centered">
-            <div><img src="./static/images/segmentation_visualization/robust_yoda_2clutter2_input.png" alt="yoda gt" width="100%"></div>
-            <div><img src="./static/images/segmentation_visualization/robust_yoda_2clutter2_sfm.png" alt="yoda sfm" width="100%"></div>
-            <div><img src="./static/images/segmentation_visualization/robust_yoda_2clutter2_sfm_mask.png" alt="yoda sfm mask" width="100%"></div>
-            <div><img src="./static/images/segmentation_visualization/robust_yoda_2clutter2_residual.png" alt="yoda residual" width="100%"></div>
-            <div><img src="./static/images/segmentation_visualization/robust_yoda_2clutter2_res_mask.png" alt="yoda res mask" width="100%"></div>
-            <div><img src="./static/images/segmentation_visualization/robust_yoda_2clutter2_final_mask.png" alt="yoda final mask" width="100%"></div>
+            <div><img src="./static/images/segmentation_visualization/classroom1/frame_00001_rgb.jpg" alt="yoda gt" width="100%"></div>
+            <div><img src="./static/images/segmentation_visualization/classroom1/frame_00001_depth.jpg" alt="yoda sfm" width="100%"></div>
+            <div><img src="./static/images/segmentation_visualization/classroom1/frame_00001_mask.jpg" alt="yoda sfm mask" width="100%"></div>
+            <div><img src="./static/images/segmentation_visualization/classroom1/frame_00001_rgb_inpainting.jpg" alt="yoda residual" width="100%"></div>
+            <div><img src="./static/images/segmentation_visualization/classroom1/frame_00001_rgb_non-glare.jpg" alt="yoda res mask" width="100%"></div>
+            <div><img src="./static/images/segmentation_visualization/classroom1/frame_00001_depth_non-glare.jpg" alt="yoda final mask" width="100%"></div>
           </div>
           <div class="video-grid-6 has-text-centered">
-            <div><img src="./static/images/segmentation_visualization/robust_crab_99932_input.png" alt="crab gt" width="100%"></div>
-            <div><img src="./static/images/segmentation_visualization/robust_crab_99932_sfm.png" alt="crab sfm" width="100%"></div>
-            <div><img src="./static/images/segmentation_visualization/robust_crab_99932_sfm_mask.png" alt="crab sfm mask" width="100%"></div>
-            <div><img src="./static/images/segmentation_visualization/robust_crab_99932_residual.png" alt="crab residual" width="100%"></div>
-            <div><img src="./static/images/segmentation_visualization/robust_crab_99932_res_mask.png" alt="crab res mask" width="100%"></div>
-            <div><img src="./static/images/segmentation_visualization/robust_crab_99932_final_mask.png" alt="crab final mask" width="100%"></div>
-          </div>
-          <div class="video-grid-6 has-text-centered">
-            <div><img src="./static/images/segmentation_visualization/robust_statue_IMG_4832_input.png" alt="statue gt" width="100%"></div>
-            <div><img src="./static/images/segmentation_visualization/robust_statue_IMG_4832_sfm.png" alt="statue sfm" width="100%"></div>
-            <div><img src="./static/images/segmentation_visualization/robust_statue_IMG_4832_sfm_mask.png" alt="statue sfm mask" width="100%"></div>
-            <div><img src="./static/images/segmentation_visualization/robust_statue_IMG_4832_residual.png" alt="statue residual" width="100%"></div>
-            <div><img src="./static/images/segmentation_visualization/robust_statue_IMG_4832_res_mask.png" alt="statue res mask" width="100%"></div>
-            <div><img src="./static/images/segmentation_visualization/robust_statue_IMG_4832_final_mask.png" alt="statue final mask" width="100%"></div>
-          </div>
-          <div class="video-grid-6 has-text-centered">
-            <div><img src="./static/images/segmentation_visualization/robust_andbot_IMG_2025_input.png" alt="andbot gt" width="100%"></div>
-            <div><img src="./static/images/segmentation_visualization/robust_andbot_IMG_2025_sfm.png" alt="andbot sfm" width="100%"></div>
-            <div><img src="./static/images/segmentation_visualization/robust_andbot_IMG_2025_sfm_mask.png" alt="andbot sfm mask" width="100%"></div>
-            <div><img src="./static/images/segmentation_visualization/robust_andbot_IMG_2025_residual.png" alt="andbot residual" width="100%"></div>
-            <div><img src="./static/images/segmentation_visualization/robust_andbot_IMG_2025_res_mask.png" alt="andbot res mask" width="100%"></div>
-            <div><img src="./static/images/segmentation_visualization/robust_andbot_IMG_2025_final_mask.png" alt="andbot final mask" width="100%"></div>
-          </div>
-          <div class="video-grid-6 has-text-centered">
-            <div><img src="./static/images/segmentation_visualization/kubric_pillow_rgba_00021_input.png" alt="pillow gt" width="100%"></div>
-            <div><img src="./static/images/segmentation_visualization/kubric_pillow_rgba_00021_sfm.png" alt="pillow sfm" width="100%"></div>
-            <div><img src="./static/images/segmentation_visualization/kubric_pillow_rgba_00021_sfm_mask.png" alt="pillow sfm mask" width="100%"></div>
-            <div><img src="./static/images/segmentation_visualization/kubric_pillow_rgba_00021_residual.png" alt="pillow residual" width="100%"></div>
-            <div><img src="./static/images/segmentation_visualization/kubric_pillow_rgba_00021_res_mask.png" alt="pillow res mask" width="100%"></div>
-            <div><img src="./static/images/segmentation_visualization/kubric_pillow_rgba_00021_final_mask.png" alt="pillow final mask" width="100%"></div>
-          </div>
-          <div class="video-grid-6 has-text-centered">
-            <div><img src="./static/images/segmentation_visualization/kubric_cars_rgba_00070_input.png" alt="cars gt" width="100%"></div>
-            <div><img src="./static/images/segmentation_visualization/kubric_cars_rgba_00070_sfm.png" alt="cars sfm" width="100%"></div>
-            <div><img src="./static/images/segmentation_visualization/kubric_cars_rgba_00070_sfm_mask.png" alt="cars sfm mask" width="100%"></div>
-            <div><img src="./static/images/segmentation_visualization/kubric_cars_rgba_00070_residual.png" alt="cars residual" width="100%"></div>
-            <div><img src="./static/images/segmentation_visualization/kubric_cars_rgba_00070_res_mask.png" alt="cars res mask" width="100%"></div>
-            <div><img src="./static/images/segmentation_visualization/kubric_cars_rgba_00070_final_mask.png" alt="cars final mask" width="100%"></div>
-          </div>
-          <div class="video-grid-6 has-text-centered">
-            <div><img src="./static/images/segmentation_visualization/phototourism_brandenburg_20366299_2271189237_input.png" alt="brandenburg gt" width="100%"></div>
-            <div><img src="./static/images/segmentation_visualization/phototourism_brandenburg_20366299_2271189237_sfm.png" alt="brandenburg sfm" width="100%"></div>
-            <div><img src="./static/images/segmentation_visualization/phototourism_brandenburg_20366299_2271189237_sfm_mask.png" alt="brandenburg sfm mask" width="100%"></div>
-            <div><img src="./static/images/segmentation_visualization/phototourism_brandenburg_20366299_2271189237_residual.png" alt="brandenburg residual" width="100%"></div>
-            <div><img src="./static/images/segmentation_visualization/phototourism_brandenburg_20366299_2271189237_res_mask.png" alt="brandenburg res mask" width="100%"></div>
-            <div><img src="./static/images/segmentation_visualization/phototourism_brandenburg_20366299_2271189237_final_mask.png" alt="brandenburg final mask" width="100%"></div>
-          </div>
-          <div class="video-grid-6 has-text-centered">
-            <div><img src="./static/images/segmentation_visualization/phototourism_sacre_20179898_3676553790_input.png" alt="sacre gt" width="100%"></div>
-            <div><img src="./static/images/segmentation_visualization/phototourism_sacre_20179898_3676553790_sfm.png" alt="sacre sfm" width="100%"></div>
-            <div><img src="./static/images/segmentation_visualization/phototourism_sacre_20179898_3676553790_sfm_mask.png" alt="sacre sfm mask" width="100%"></div>
-            <div><img src="./static/images/segmentation_visualization/phototourism_sacre_20179898_3676553790_residual.png" alt="sacre residual" width="100%"></div>
-            <div><img src="./static/images/segmentation_visualization/phototourism_sacre_20179898_3676553790_res_mask.png" alt="sacre res mask" width="100%"></div>
-            <div><img src="./static/images/segmentation_visualization/phototourism_sacre_20179898_3676553790_final_mask.png" alt="sacre final mask" width="100%"></div>
-          </div>
-          <div class="video-grid-6 has-text-centered">
-            <div><img src="./static/images/segmentation_visualization/phototourism_taj_61293486_6619693529_input.png" alt="taj gt" width="100%"></div>
-            <div><img src="./static/images/segmentation_visualization/phototourism_taj_61293486_6619693529_sfm.png" alt="taj sfm" width="100%"></div>
-            <div><img src="./static/images/segmentation_visualization/phototourism_taj_61293486_6619693529_sfm_mask.png" alt="taj sfm mask" width="100%"></div>
-            <div><img src="./static/images/segmentation_visualization/phototourism_taj_61293486_6619693529_residual.png" alt="taj residual" width="100%"></div>
-            <div><img src="./static/images/segmentation_visualization/phototourism_taj_61293486_6619693529_res_mask.png" alt="taj res mask" width="100%"></div>
-            <div><img src="./static/images/segmentation_visualization/phototourism_taj_61293486_6619693529_final_mask.png" alt="taj final mask" width="100%"></div>
-          </div>
-          <div class="video-grid-6 has-text-centered">
-            <div><img src="./static/images/segmentation_visualization/phototourism_trevi_01005006_6303451772_input.png" alt="trevi gt" width="100%"></div>
-            <div><img src="./static/images/segmentation_visualization/phototourism_trevi_01005006_6303451772_sfm.png" alt="trevi sfm" width="100%"></div>
-            <div><img src="./static/images/segmentation_visualization/phototourism_trevi_01005006_6303451772_sfm_mask.png" alt="trevi sfm mask" width="100%"></div>
-            <div><img src="./static/images/segmentation_visualization/phototourism_trevi_01005006_6303451772_residual.png" alt="trevi residual" width="100%"></div>
-            <div><img src="./static/images/segmentation_visualization/phototourism_trevi_01005006_6303451772_res_mask.png" alt="trevi res mask" width="100%"></div>
-            <div><img src="./static/images/segmentation_visualization/phototourism_trevi_01005006_6303451772_final_mask.png" alt="trevi final mask" width="100%"></div>
+            <div><img src="./static/images/segmentation_visualization/classroom2/frame_00001_rgb.jpg" alt="crab gt" width="100%"></div>
+            <div><img src="./static/images/segmentation_visualization/classroom2/frame_00001_depth.jpg" alt="crab sfm" width="100%"></div>
+            <div><img src="./static/images/segmentation_visualization/classroom2/frame_00001_mask.jpg" alt="crab sfm mask" width="100%"></div>
+            <div><img src="./static/images/segmentation_visualization/classroom2/frame_00001_rgb_inpainting.jpg" alt="crab residual" width="100%"></div>
+            <div><img src="./static/images/segmentation_visualization/classroom2/frame_00001_rgb_non-glare.jpg" alt="crab res mask" width="100%"></div>
+            <div><img src="./static/images/segmentation_visualization/classroom2/frame_00001_depth_non-glare.jpg" alt="crab final mask" width="100%"></div>
           </div>
           
         </div>
@@ -271,33 +204,33 @@
             <div class="vertical-text">classroom1</div>
             <div>
               Ground Truth
-              <video class="video" preload="auto" id="yoda1" loop playsinline autoPlay muted src="static/videos/classroom1/gt.mp4" onplay="resizeAndPlayMultiWhenReady(this, ['yoda2', 'yoda3'])"></video>
-              <canvas height=0 class="videoMerge" id="yoda1Merge"></canvas>
+              <video class="video" preload="auto" id="classroom11" loop playsinline autoPlay muted src="static/videos/classroom1/gt.mp4" onplay="resizeAndPlayMultiWhenReady(this, ['classroom12', 'classroom13'])"></video>
+              <canvas height=0 class="videoMerge" id="classroom11Merge"></canvas>
             </div>
             <div>
               instant NGP
-              <video class="video" preload="auto" id="yoda2" loop playsinline autoPlay muted src="static/videos/classroom1/result.mp4"></video>
-              <canvas height=0 class="videoMerge" id="yoda2Merge"></canvas>
+              <video class="video" preload="auto" id="classroom12" loop playsinline autoPlay muted src="static/videos/classroom1/result.mp4"></video>
+              <canvas height=0 class="videoMerge" id="classroom12Merge"></canvas>
             </div>
             <div>
               w/ Non-Glare-NeRF (<b>ours</b>) 
-              <video class="video" preload="auto" id="yoda3" loop playsinline autoPlay muted src="static/videos/classroom1_inpainting/result.mp4"></video>
-              <canvas height=0 class="videoMerge" id="yoda3Merge"></canvas>
+              <video class="video" preload="auto" id="classroom13" loop playsinline autoPlay muted src="static/videos/classroom1_inpainting/result.mp4"></video>
+              <canvas height=0 class="videoMerge" id="classroom13Merge"></canvas>
             </div>
           </div>
           <div class="video-grid-3-with-left">
             <div class="vertical-text">classroom2</div>
             <div>
-              <video class="video" preload="auto" id="yoda1" loop playsinline autoPlay muted src="static/videos/classroom2/gt.mp4" onplay="resizeAndPlayMultiWhenReady(this, ['yoda2', 'yoda3'])"></video>
-              <canvas height=0 class="videoMerge" id="yoda1Merge"></canvas>
+              <video class="video" preload="auto" id="classroom21" loop playsinline autoPlay muted src="static/videos/classroom2/gt.mp4" onplay="resizeAndPlayMultiWhenReady(this, ['classroom22', 'classroom23'])"></video>
+              <canvas height=0 class="videoMerge" id="classroom21Merge"></canvas>
             </div>
             <div>
-              <video class="video" preload="auto" id="yoda2" loop playsinline autoPlay muted src="static/videos/classroom2/result.mp4"></video>
-              <canvas height=0 class="videoMerge" id="yoda2Merge"></canvas>
+              <video class="video" preload="auto" id="classroom22" loop playsinline autoPlay muted src="static/videos/classroom2/result.mp4"></video>
+              <canvas height=0 class="videoMerge" id="classroom22Merge"></canvas>
             </div>
             <div>
-              <video class="video" preload="auto" id="yoda3" loop playsinline autoPlay muted src="static/videos/classroom2_inpainting/result.mp4"></video>
-              <canvas height=0 class="videoMerge" id="yoda3Merge"></canvas>
+              <video class="video" preload="auto" id="classroom23" loop playsinline autoPlay muted src="static/videos/classroom2_inpainting/result.mp4"></video>
+              <canvas height=0 class="videoMerge" id="classroom23Merge"></canvas>
             </div>
           </div>
         </div>

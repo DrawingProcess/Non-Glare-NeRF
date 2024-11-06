@@ -16,7 +16,7 @@ def img2mp4(paths, pathOut, fps=10, rotate=True):
     # Determine size from first frame
     height, width, layers = frame_array[0].shape
     size = (width, height)
-    out = cv2.VideoWriter(pathOut, cv2.VideoWriter_fourcc(*'DIVX'), fps, size)
+    out = cv2.VideoWriter(pathOut, cv2.VideoWriter_fourcc('m', 'p', '4', 'v'), fps, size)
     
     for frame in frame_array:
         out.write(frame)
@@ -31,13 +31,18 @@ def concat_and_save(concat_paths, pathOut, fps=10):
         # Concatenate images horizontally
         img_concat = cv2.hconcat(imgs_rotated)
 
-        # Append concatenated frame
+        # # Resize concatenated image to height 315 while maintaining aspect ratio
+        # height = 315
+        # width = int((height / img_concat.shape[0]) * img_concat.shape[1])
+        # img_concat_resized = cv2.resize(img_concat, (width, height))
+
+        # Append resized frame
         frame_array.append(img_concat)
 
     # Define video size from concatenated image dimensions
     height, width, layers = frame_array[0].shape
     size = (width, height)
-    out = cv2.VideoWriter(pathOut, cv2.VideoWriter_fourcc(*'DIVX'), fps, size)
+    out = cv2.VideoWriter(pathOut, cv2.VideoWriter_fourcc('m', 'p', '4', 'v'), fps, size)
     
     for frame in frame_array:
         out.write(frame)
@@ -45,7 +50,8 @@ def concat_and_save(concat_paths, pathOut, fps=10):
 
 # Paths and configuration
 path = "./nerfstudio/outputs/"
-scene = "classroom2_inpainting/" 
+scene = "classroom1_inpainting/" 
+scenes = ["classroom1/", "classroom1_inpainting/", "classroom2/", "classroom2_inpainting/"]
 scene_path = {
     "classroom1/": "240516_classroom1/instant-ngp/2024-05-16_131104/images/",
     "classroom1_inpainting/": "240516_classroom1_inpainting/instant-ngp/2024-05-30_075321/images/",
@@ -57,21 +63,28 @@ output_path = "./docs/static/videos/"
 results = ["rgb", "rgb_gt", "depth", "depth_gt"]
 paired_results = {"gt": ["rgb_gt", "depth_gt"], "result": ["rgb", "depth"]}
 
-# Save individual videos
-for result in results:
-    paths = sorted(os.listdir(path + scene_path[scene] + result))
-    paths = [path + scene_path[scene] + result + "/" + p for p in paths]
-
-    img2mp4(paths, output_path + scene + result + ".mp4", fps=6)
-
-# Save concatenated videos
-for result_name, result_keys in paired_results.items():
-    concat_paths = []
-    for result in result_keys:
+import os
+for scene in scenes:
+    os.makedirs(output_path + scene, exist_ok=True)
+    # Save individual videos
+    for result in results:
         paths = sorted(os.listdir(path + scene_path[scene] + result))
         paths = [path + scene_path[scene] + result + "/" + p for p in paths]
-        print(paths)
-        concat_paths.append(paths)
 
-    # output_path = path + scene + result_name + ".mp4"
-    concat_and_save(concat_paths, output_path + scene + result_name + ".mp4", fps=6)
+        img2mp4(paths, output_path + scene + result + ".mp4", fps=6)
+
+    # Save concatenated videos
+    for result_name, result_keys in paired_results.items():
+        concat_paths = []
+        for result in result_keys:
+            paths = sorted(os.listdir(path + scene_path[scene] + result))
+            paths = [path + scene_path[scene] + result + "/" + p for p in paths]
+            print(paths)
+            concat_paths.append(paths)
+
+        # output_path = path + scene + result_name + ".mp4"
+        output_path_concat = output_path + scene + result_name + "_concat.mp4"
+        output_path_result = output_path + scene + result_name + ".mp4"
+        concat_and_save(concat_paths, output_path_concat, fps=6)
+
+        os.system(f'ffmpeg -i {output_path_concat} -vcodec libx264 {output_path_result}')
