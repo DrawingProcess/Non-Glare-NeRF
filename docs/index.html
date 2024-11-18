@@ -168,8 +168,8 @@
             (i) ARFrame represents frame-based data provided by ARKit, collected in real-time from devices like iPhones.
             (ii) ARDepthData represents depth information collected by the LiDAR sensor in the iPhone. ARKit generates ARDepthData based on sceneDepth, which includes two key components:
               - depthMap: A map containing depth values (z-values) for each pixel.
-              - confidenceMap: A map representing the confidence level of the depth data, typically categorized into low, middle, and high levels.
-            (iii) unprojected: Each point in the depthMap is transformed into its corresponding 3D position in space. The confidenceMap can be used to filter points with low accuracy, ensuring better results.
+              - confidenceMap: A map representing the confidence level of the depth data, typically categorized into low, middle, and high levels.<br>
+            Each point in the depthMap is transformed into its corresponding 3D position in space. The confidenceMap can be used to filter points with low accuracy, ensuring better results.
           </p>
           <img src="./static/images/fig/custom_dataset.png" alt="custom dataset" width="100%">
           <p>
@@ -189,6 +189,7 @@
           <p>
             <b>Visualization:</b> Here are examples of HuGS on different scenes (datasets). More results can be found in the paper and the data.
           </p>
+          <br>
           <div class="video-grid-6 has-text-centered">
             <div>(1) Input RGB</div>
             <div>(2) Input Depth</div>
@@ -213,6 +214,8 @@
             <div><img src="./static/images/segmentation_visualization/classroom2/frame_00001_rgb_non-glare.jpg" alt="crab res mask" width="100%"></div>
             <div><img src="./static/images/segmentation_visualization/classroom2/frame_00001_depth_non-glare.jpg" alt="crab final mask" width="100%"></div>
           </div>
+        <br>
+        <br>
         <p>
           <b>Quality Evaluation:</b>  Our methodology shows that the Glare region is effectively restored, 
           and we obtain much more natural texture and depth information compared to existing methods.
