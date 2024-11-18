@@ -131,12 +131,11 @@
   </div>
 </section>
 
-
 <section class="section">
   <div class="container is-max-desktop">
     <div class="columns is-centered">
       <div class="column is-full-width">
-        <h3 class="title is-3 is-centered" style="text-align: center;">Non-Glare-NeRF</h3>
+        <h3 class="title is-3 is-centered" style="text-align: center;">Non-Glare-NeRF Methods</h3>
         <div class="content">
           <!-- <h4 class="title is-4 is-centered" style="text-align: center;">Motivation</h4>
           <img src="./static/images/fig/motivation.gif" alt="Motivation" width="100%">
@@ -154,10 +153,41 @@
             (b): Extract the result of Instant NGP (NeRF) model with pre-processing. 
             Pre-processing includes the process of detecting glare areas and applying interpainting.
           </p>
-          <br>
+
+          <img src="./static/images/fig/iphone_custom.png" alt="How to Create Depth Dataset using iphone" width="100%">
+          <p>
+            <b>Data Pipeline for Depth Evaluation:</b>
+            Using the iPhone's LiDAR sensor and RGB camera, a dataset including accurate depth information and color information was constructed.
+            (a) Data Collection: I used my iPhone to shoot certain scenes, and I extracted RGB images and camera poses for each frame.
+            (b) Acquiring depth information: As shown in Figure, depth information obtained from the LiDAR sensor was combined with RGB images to create the Depth Ground Truth. At this time, the Depth Completion technique was applied to supplement the gaps in the LiDAR data.
+          </p>
+          <img src="./static/images/fig/iphone_inner_module.jpg" alt="iphone inner module" width="100%">
+          <p>
+            <b>Dataset Construction:</b>
+            This diagram illustrates the process of creating a 3D dataset using ARFrame and ARDepthData.
+            (i) ARFrame represents frame-based data provided by ARKit, collected in real-time from devices like iPhones.
+            (ii) ARDepthData represents depth information collected by the LiDAR sensor in the iPhone. ARKit generates ARDepthData based on sceneDepth, which includes two key components:
+              - depthMap: A map containing depth values (z-values) for each pixel.
+              - confidenceMap: A map representing the confidence level of the depth data, typically categorized into low, middle, and high levels.
+            (iii) unprojected: Each point in the depthMap is transformed into its corresponding 3D position in space. The confidenceMap can be used to filter points with low accuracy, ensuring better results.
+          </p>
+          <img src="./static/images/fig/custom_dataset.png" alt="custom dataset" width="100%">
+          <p>
+            <b>Dataset Construction:</b>
+            The dataset was constructed by combining the RGB image and the depth information obtained from the iPhone's LiDAR sensor.
+          </p>
+        </div>
+      </div>
+    </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h3 class="title is-3 is-centered" style="text-align: center;">Rendering Results</h2>
           <p>
             <b>Visualization:</b> Here are examples of HuGS on different scenes (datasets). More results can be found in the paper and the data.
-
           </p>
           <div class="video-grid-6 has-text-centered">
             <div>(1) Input RGB</div>
@@ -183,18 +213,6 @@
             <div><img src="./static/images/segmentation_visualization/classroom2/frame_00001_rgb_non-glare.jpg" alt="crab res mask" width="100%"></div>
             <div><img src="./static/images/segmentation_visualization/classroom2/frame_00001_depth_non-glare.jpg" alt="crab final mask" width="100%"></div>
           </div>
-          
-        </div>
-      </div>
-    </div>
-</section>
-
-
-<section class="section">
-  <div class="container is-max-desktop">
-    <div class="columns is-centered">
-      <div class="column is-full-width">
-        <h3 class="title is-3 is-centered" style="text-align: center;">Rendering Results</h2>
         <p>
           <b>Quality Evaluation:</b>  Our methodology shows that the Glare region is effectively restored, 
           and we obtain much more natural texture and depth information compared to existing methods.
