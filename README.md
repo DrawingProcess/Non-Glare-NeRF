@@ -2,7 +2,7 @@
 
 [Seongjun Choi](https://drawingprocess.github.io), [Hyoseok Hwang](https://sites.google.com/view/hyoseok-hwang)
 
-[[`Paper`](https://arxiv.org/abs/2403.17537)] [[`Project`](https://drawingprocess.github.io/Non-Glare-NeRF/)]
+[[`Paper`](./docs/static/paper/\[KSC2024\]Non-Glare-NeRF.docx.pdf)] [[`Project`](https://drawingprocess.github.io/Non-Glare-NeRF/)]
 
 This is the official implementation of our KSC 2024 paper Non-Glare NeRF: To prevent unwanted glare. Pull requests and issues are welcome.</br>
 
